@@ -33,7 +33,7 @@ def app():
         df['Open']=df['Open'].astype(str)
         df['Open'] = df['Open'].str.split('-').str[2]
         df['Open'] = pd.to_numeric(df['Open'])
-    return [ df['Open'].tolist(), df['Close'].tolist() ] 
+        return [ df['Open'].tolist(), df['Close'].tolist() ] 
     dates, prices = get_data(df)
     st.write(get_data(df))
     st.subheader('PROBANDOOO') 
@@ -59,7 +59,7 @@ def app():
         plt.title('Support Vector Regression')
         plt.legend()
         plt.show()
-    return svr_rbf.predict(x)[0], svr_lin.predict(x)[0], svr_poly.predict(x)[0] 
+        return svr_rbf.predict(x)[0], svr_lin.predict(x)[0], svr_poly.predict(x)[0] 
     st.subheader('Prediccion') 
     predicted_price = predict_prices(dates, prices, [21])
     st.pyplot(predicted_price)
