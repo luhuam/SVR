@@ -67,4 +67,4 @@ def app():
     st.subheader('Prediccion') 
     predicted_price = predict_prices(dates, prices, [21])
     st.write(predicted_price)
-    
+    st.plotly_chart(predict_prices)
