@@ -41,3 +41,5 @@ def app():
     dates, prices = get_data(df)
     
     st.write(get_data(df))
+
+    st.subheader('Prediccion') 
