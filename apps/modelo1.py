@@ -30,7 +30,7 @@ def app():
     st.write(df.describe())
 
 
-    st.subheader('Support Vector Regression') 
+    st.subheader('Support Veector Regression') 
     
     def get_data(df):  
         df['Open']=df['Open'].astype(str)
