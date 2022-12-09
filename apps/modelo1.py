@@ -31,6 +31,7 @@ def app():
     st.write(df.describe())
     st.subheader('Support Vector Regression') 
     st.write('Gráfica 1')
+    df = df.reset_index()
     def get_data(df):  
         df['Date']=df['Date'].astype(str)
         df['Date'] = df['Date'].str.split('-').str[2]
