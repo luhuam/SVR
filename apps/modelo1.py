@@ -4,6 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas_datareader as datas
 from sklearn.linear_model import LogisticRegression
+from sklearn.svm import SVR 
 from sklearn import metrics
 import plotly.express as px
 from stockai import Stock
