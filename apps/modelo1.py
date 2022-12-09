@@ -38,10 +38,9 @@ def app():
         df['Date'] = pd.to_numeric(df['Date'])
         return [ df['Date'].tolist(), df['Close'].tolist() ] 
     dates, prices = get_data(df)
-    st.write(dates,prices)
+    st.write(prices)
     st.write('Gráfica 2')    
     st.subheader('PROBANDOOO') 
-    filename = 'output_graph'
     def predict_prices(dates, prices, x):
         dates = np.reshape(dates,(len(dates), 1)) # convert to 1xn dimension
         x = np.reshape(x,(len(x), 1))
@@ -64,7 +63,7 @@ def app():
         plt.title('Support Vector Regression')
         plt.legend()
         plt.show()
-        plt.savefig("prueba.png".format(filename), format='png')
+        plt.savefig("prueba.png".format(output_graph), format='png')
         return svr_rbf.predict(x)[0], svr_lin.predict(x)[0], svr_poly.predict(x)[0] 
     st.subheader('Prediccion') 
     predicted_price = predict_prices(dates, prices, [21])
