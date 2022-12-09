@@ -32,10 +32,10 @@ def app():
     st.subheader('Support Vector Regression') 
     st.write('Gráfica 1')
     def get_data(df):  
-        df['Open']=df['Open'].astype(str)
-        df['Open'] = df['Open'].str.split('-').str[2]
-        df['Open'] = pd.to_numeric(df['Open'])
-        return [ df['Open'].tolist(), df['Close'].tolist() ] 
+        df['Date']=df['Date'].astype(str)
+        df['Date'] = df['Date'].str.split('-').str[2]
+        df['Date'] = pd.to_numeric(df['Date'])
+        return [ df['Date'].tolist(), df['Close'].tolist() ] 
     dates, prices = get_data(df)
     st.write(dates,prices)
     st.write('Gráfica 2')    
