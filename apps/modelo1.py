@@ -28,7 +28,7 @@ def app():
     st.write(df)
     st.subheader('Datos del 2004 al 2022') 
     st.write(df.describe())
-    st.subheader('Support Vector Regression') 
+    st.subheader('Support Vecctor Regression') 
     def get_data(df):  
         df['Open']=df['Open'].astype(str)
         df['Open'] = df['Open'].str.split('-').str[2]
