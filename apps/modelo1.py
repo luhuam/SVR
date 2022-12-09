@@ -41,6 +41,7 @@ def app():
     st.write(dates,prices)
     st.write('Gráfica 2')    
     st.subheader('PROBANDOOO') 
+    filename = 'output_graph'
     def predict_prices(dates, prices, x):
         dates = np.reshape(dates,(len(dates), 1)) # convert to 1xn dimension
         x = np.reshape(x,(len(x), 1))
@@ -63,7 +64,6 @@ def app():
         plt.title('Support Vector Regression')
         plt.legend()
         plt.show()
-        filename = 'output_graph'
         plt.savefig("prueba.png".format(filename), format='png')
         return svr_rbf.predict(x)[0], svr_lin.predict(x)[0], svr_poly.predict(x)[0] 
     st.subheader('Prediccion') 
