@@ -36,6 +36,7 @@ def app():
     return [ df['Open'].tolist(), df['Close'].tolist() ] 
     dates, prices = get_data(df)
     st.write(get_data(df))
+    
     def predict_prices(dates, prices, x):
         dates = np.reshape(dates,(len(dates), 1)) # convert to 1xn dimension
         x = np.reshape(x,(len(x), 1))
@@ -59,6 +60,7 @@ def app():
         plt.legend()
         plt.show()
     return svr_rbf.predict(x)[0], svr_lin.predict(x)[0], svr_poly.predict(x)[0]
+def app():    
     st.subheader('Prediccion') 
     predicted_price = predict_prices(dates, prices, [21])
     st.pyplot(predicted_price)
