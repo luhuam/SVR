@@ -40,4 +40,4 @@ def app():
     
     dates, prices = get_data(df)
     
-    st.write(dates, prices)
+    st.write(get_data(df))
