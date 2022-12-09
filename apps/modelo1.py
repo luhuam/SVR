@@ -63,9 +63,8 @@ def app():
         plt.title('Support Vector Regression')
         plt.legend()
         plt.show()
-        plt.savefig("prueba.png")
         return svr_rbf.predict(x)[0], svr_lin.predict(x)[0], svr_poly.predict(x)[0] 
     st.subheader('Prediccion') 
     predicted_price = predict_prices(dates, prices, [21])
-    st.pyplot(predicted_price)
+    st.write(predicted_price)
     
