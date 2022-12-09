@@ -63,6 +63,7 @@ def app():
         plt.title('Support Vector Regression')
         plt.legend()
         plt.show()
+        filename = 'output_graph'
         plt.savefig("prueba.png".format(filename), format='png')
         return svr_rbf.predict(x)[0], svr_lin.predict(x)[0], svr_poly.predict(x)[0] 
     st.subheader('Prediccion') 
