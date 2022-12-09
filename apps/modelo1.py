@@ -38,7 +38,7 @@ def app():
     dates, prices = get_data(df)
     st.write(dates,prices)
     st.write('Gráfica 2')    
-st.subheader('PROBANDOOO') 
+    st.subheader('PROBANDOOO') 
     def predict_prices(dates, prices, x):
         dates = np.reshape(dates,(len(dates), 1)) # convert to 1xn dimension
         x = np.reshape(x,(len(x), 1))
