@@ -37,28 +37,27 @@ def app():
     dates, prices = get_data(df)
     st.write(get_data(df))
     def predict_prices(dates, prices, x):
-    dates = np.reshape(dates,(len(dates), 1)) # convert to 1xn dimension
-    x = np.reshape(x,(len(x), 1))
+        dates = np.reshape(dates,(len(dates), 1)) # convert to 1xn dimension
+        x = np.reshape(x,(len(x), 1))
     
-    svr_lin  = SVR(kernel='linear', C=1e3)
-    svr_poly = SVR(kernel='poly', C=1e3, degree=2)
-    svr_rbf = SVR(kernel='rbf', C=1e3, gamma=0.1)
+        svr_lin  = SVR(kernel='linear', C=1e3)
+        svr_poly = SVR(kernel='poly', C=1e3, degree=2)
+        svr_rbf = SVR(kernel='rbf', C=1e3, gamma=0.1)
     
-    # Fit regression model
-    svr_lin .fit(dates, prices)
-    svr_poly.fit(dates, prices)
-    svr_rbf.fit(dates, prices)
+        # Fit regression model
+        svr_lin .fit(dates, prices)
+        svr_poly.fit(dates, prices)
+        svr_rbf.fit(dates, prices)
     
-    plt.scatter(dates, prices, c='k', label='Data')
-    plt.plot(dates, svr_lin.predict(dates), c='g', label='Linear model')
-    plt.plot(dates, svr_rbf.predict(dates), c='r', label='RBF model')    
-    plt.plot(dates, svr_poly.predict(dates), c='b', label='Polynomial model')
-    
-    plt.xlabel('Date')
-    plt.ylabel('Price')
-    plt.title('Support Vector Regression')
-    plt.legend()
-    plt.show()
+        plt.scatter(dates, prices, c='k', label='Data')
+        plt.plot(dates, svr_lin.predict(dates), c='g', label='Linear model')
+        plt.plot(dates, svr_rbf.predict(dates), c='r', label='RBF model')    
+        plt.plot(dates, svr_poly.predict(dates), c='b', label='Polynomial model')
+        plt.xlabel('Date')
+        plt.ylabel('Price')
+        plt.title('Support Vector Regression')
+        plt.legend()
+        plt.show()
     
     return svr_rbf.predict(x)[0], svr_lin.predict(x)[0], svr_poly.predict(x)[0]
     st.subheader('Prediccion') 
