@@ -79,7 +79,7 @@ def app():
     st.subheader('Valores predecidos segun el modelo') 
     fig = px.bar(        
         valores,
-        x = "modelo",
+        x = "metrica",
         y = "valor",
         title = "Valores predecidos segun el modelo",
         color="metrica"
