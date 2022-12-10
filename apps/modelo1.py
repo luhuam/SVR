@@ -14,9 +14,9 @@ import datetime
 def app():
     st.title('Model 1 - SVR')
     
-    #start = '2010-08-18'
+    #start = '2012-08-18'
     #end = '2022-01-20'
-    start = st.date_input('Start' , value=pd.to_datetime('2004-08-18'))
+    start = st.date_input('Start' , value=pd.to_datetime('2012-08-18'))
     end = st.date_input('End' , value=pd.to_datetime('today'))
     
     st.title('Predicción de tendencia de acciones')
@@ -31,7 +31,7 @@ def app():
     st.subheader('Resumen de datos') 
     st.write(df.describe())
     st.subheader('Support Vector Regression') 
-    st.write('Gráfica 1')
+    st.write('Valores evaluados')
     df = df.reset_index()
     def get_data(df):  
         df['Date']=df['Date'].astype(str)
@@ -39,9 +39,7 @@ def app():
         df['Date'] = pd.to_numeric(df['Date'])
         return [ df['Date'].tolist(), df['Close'].tolist() ] 
     dates, prices = get_data(df)
-    st.write(prices)
-    st.write('Gráfica 2')    
-    st.subheader('PROBANDOOO') 
+    st.write(prices)  
     def predict_prices(dates, prices, x):
         dates = np.reshape(dates,(len(dates), 1)) # convert to 1xn dimension
         x = np.reshape(x,(len(x), 1))
@@ -70,7 +68,7 @@ def app():
     st.write(predicted_price)
     RVF, LIN, POLY=predicted_price
     valores = {
-        'metrica' : ['RVF', 'LIN', 'POLY'],
+        'modelo' : ['RVF', 'LIN', 'POLY'],
         'valor': [RVF, LIN, POLY]
     }
     
@@ -79,9 +77,9 @@ def app():
     st.subheader('Valores predecidos segun el modelo') 
     fig = px.bar(        
         valores,
-        x = "metrica",
+        x = "modelo",
         y = "valor",
         title = "Valores predecidos segun el modelo",
-        color="metrica"
+        color="modelo"
     )
     st.plotly_chart(fig)
