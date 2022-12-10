@@ -68,4 +68,20 @@ def app():
     st.subheader('Prediccion') 
     predicted_price = predict_prices(dates, prices, [21])
     st.write(predicted_price)
-    st.plotly_chart(predict_prices)
+    RVF, LIN, POLY=predicted_price
+    valores = {
+        'metrica' : ['RVF', 'LIN', 'POLY'],
+        'valor': [RVF, LIN, POLY]
+    }
+    
+    valores = pd.DataFrame(valores)  
+    ### Gráfica de las métricas
+    st.subheader('Valores predecidos segun el modelo') 
+    fig = px.bar(        
+        valores,
+        x = "modelo",
+        y = "valor",
+        title = "Valores predecidos segun el modelo",
+        color="metrica"
+    )
+    st.plotly_chart(fig)
